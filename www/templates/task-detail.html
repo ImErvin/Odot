@@ -4,11 +4,42 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{chat.name}}">
+<ion-view view-title="{{task.name}}">
+    <ion-nav-bar class="header">
+    <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
   <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+      
+    <div class="card">
+      <div class="header item item-divider">
+          Task Details
+      </div>
+      <div class="item item-text-wrap">
+        {{task.taskDetail}}
+      </div>
+      <div class="header item item-divider">
+        Added Date
+      </div>
+      <div class="item item-text-wrap">
+        {{task.added | date: 'yyyy-MM-dd HH:mm'}}
+      </div>
+      <div class="header item item-divider">
+  <ion-checkbox class="header" ng-model="hideEdit">Edit Task</ion-checkbox>
+      </div>
+      <div class="item item-text-wrap" ng-show="hideEdit">
+        <div class="list">
+      <label class="item item-input">
+        <input type="text" ng-model="data.taskName" placeholder="Task Name">
+      </label>
+      <label class="item item-input">
+        <input type="text" ng-model="data.taskDetail" placeholder="Task Details" >
+      </label>
+      </label>
+    </div>
+        <button class="addTask button button-block" ng-click="editTask()">Edit</button>
+</div>
+    </div>
+      
+      
   </ion-content>
 </ion-view>

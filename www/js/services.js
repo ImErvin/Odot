@@ -1,47 +1,48 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
-
-  // Some fake testing data
-  var chats = [{
+.factory('Tasks', function() {
+  var tasks = {
+  data:
+  [{
     id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
+    name: 'Buy Milk',
+    taskDetail: 'Stop by the shop',
+    added: new Date()
   }, {
     id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
-
+    name: 'Wash Car',
+    taskDetail: 'Dont forget to hoover',
+    added: new Date()  
+  }]};
+    
+  function addTask(taskName, taskDetail) {
+      tasks.data.push({id: tasks.data.length+1, name: taskName, taskDetail: taskDetail, added: new Date()});
+  }    
+    
+  function editTask(taskId, taskName, taskDetail){
+      
+      for (var i = 0; i < tasks.data.length; i++) {
+        if (tasks.data[i].id === parseInt(taskId)) {
+            tasks.data[i].name = taskName;
+            tasks.data[i].taskDetail = taskDetail;
+        }
+      }
+      
+  }
+    
   return {
     all: function() {
-      return chats;
+      return tasks.data;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(task) {
+      tasks.data.splice(tasks.data.indexOf(task), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    addTask: addTask,
+    editTask: editTask,  
+    getTask: function(taskId) {
+      for (var i = 0; i < tasks.data.length; i++) {
+        if (tasks.data[i].id === parseInt(taskId)) {
+          return tasks.data[i];
         }
       }
       return null;

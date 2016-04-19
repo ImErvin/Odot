@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
     .state('tab.task-detail', {
-      url: '/task/:taskId',
+      url: '/task/:chatId',
       views: {
         'tab-task': {
           templateUrl: 'templates/task-detail.html',
