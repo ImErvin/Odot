@@ -1,5 +1,5 @@
 <ion-view view-title="Odot Task List">
-    <ion-nav-bar class="header">
+    <ion-nav-bar class="header padding">
     <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
   <ion-content class="background">
@@ -8,7 +8,7 @@
       <div class="header item item-divider">
         Add Task
       </div>
-      <div class="item item-text-wrap">
+      <div class="item-text-wrap">
         <div class="list">
       <label class="item item-input">
         <input type="text" ng-model="data.taskName" placeholder="Task Name">
@@ -20,11 +20,10 @@
     </div>      
     </div>  
     </div>
-    
     <button class="addTask button button-block" ng-click="addTask()">Add Task</button>
     
-    <br><br>  
-    <ion-list>
+    <ion-checkbox class="header checkbox-assertive" ng-model="show">Show Tasks</ion-checkbox>
+    <ion-list ng-show="show"> 
       <ion-item class="item-remove-animate item-icon-right" ng-repeat="task in tasks" type="item-text-wrap" href="#/tab/task/{{task.id}}">
         <h2>{{task.name}}</h2>
         <p>{{task.taskDetail}}</p>
@@ -35,5 +34,7 @@
         </ion-option-button>
       </ion-item>
     </ion-list>
+    
+    
   </ion-content>
 </ion-view>

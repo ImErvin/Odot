@@ -20,6 +20,9 @@ angular.module('starter.controllers', [])
       }else{
           if($scope.data.taskDetail == ""){
               $scope.data.taskDetail = "No Details";
+              Tasks.addTask($scope.data.taskName, $scope.data.taskDetail);
+              $scope.data.taskName = "";
+   $scope.data.taskDetail = "";
           }else{
       Tasks.addTask($scope.data.taskName, $scope.data.taskDetail);
       
@@ -28,6 +31,7 @@ angular.module('starter.controllers', [])
           }
   } 
   }
+  
 })
 
 .controller('TaskDetailCtrl', function($scope, $stateParams, Tasks) {
@@ -35,12 +39,31 @@ angular.module('starter.controllers', [])
       taskName: "",
       taskDetail: ""
   };  
-       
-  $scope.editTask = function() {
-      Tasks.editTask($stateParams.taskId, $scope.data.taskName, $scope.data.taskDetail)
+      
+     $scope.editTask = function() {
+        
+         if($scope.data.taskName === "" && $scope.data.taskDetail === ""){
+             
+         }
+         else if($scope.data.taskName === ""){
+             
+            $scope.data.taskName = Tasks.getTask($stateParams.taskId).name;
+             Tasks.editTask($stateParams.taskId, $scope.data.taskName, $scope.data.taskDetail)
       $scope.data.taskName = "";
    $scope.data.taskDetail = "";
-  }    
+         }else if($scope.data.taskDetail === ""){
+             
+             $scope.data.taskDetail = Tasks.getTask($stateParams.taskId).taskDetail;
+             Tasks.editTask($stateParams.taskId, $scope.data.taskName, $scope.data.taskDetail)
+      $scope.data.taskName = "";
+   $scope.data.taskDetail = "";
+         }else{
+             Tasks.editTask($stateParams.taskId, $scope.data.taskName, $scope.data.taskDetail)
+      $scope.data.taskName = "";
+   $scope.data.taskDetail = "";
+         }
+         
+  }  
       
   $scope.task = Tasks.getTask($stateParams.taskId);
 })

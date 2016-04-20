@@ -6,9 +6,9 @@
 -->
 <ion-view view-title="{{task.name}}">
     <ion-nav-bar class="header">
-    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-back-button class="button-dark"></ion-nav-back-button>
     </ion-nav-bar>
-  <ion-content class="padding">
+  <ion-content class="background padding">
       
     <div class="card">
       <div class="header item item-divider">
@@ -24,7 +24,7 @@
         {{task.added | date: 'yyyy-MM-dd HH:mm'}}
       </div>
       <div class="header item item-divider">
-  <ion-checkbox class="header" ng-model="hideEdit">Edit Task</ion-checkbox>
+  <ion-checkbox class="header checkbox-assertive" ng-model="hideEdit">Edit Task</ion-checkbox>
       </div>
       <div class="item item-text-wrap" ng-show="hideEdit">
         <div class="list">
