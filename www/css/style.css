@@ -1,12 +1,14 @@
-/* Empty. Add your own CSS if you like  #00e6b8*/
+/* I used CSS to change the background and font colors of certain items. Found this was the easiest way. addTask changes the buttons colors, background changes the ionic-content color and header changes the header colors */
 .addTask{
-    background-color: #00e6b8;
-    color: black;
+    background-color: #144955;
+    color: white;
+    font-weight: 500;
 }
 .background{
-    background-color: white;
+    background-color: #F14C38;
 }
 .header{
-    background-color: #00e6b8;
-    color: black;
+    background-color: #144955;
+    color: white;
+    font-weight: 500;
 }

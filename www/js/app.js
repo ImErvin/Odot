@@ -23,9 +23,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
-
-  // Each tab has its own nav history stack:
-
+  
+  /* Decalred Two States, Task and Task Details, Task is the default main page where user can view all tasks and add a new task. Task Details is a sub state of Task, it will display information for each Task(object). The URL will be different for each task. Sampled from the Tabs template for chats. */
   .state('tab.task', {
       url: '/task',
       views: {

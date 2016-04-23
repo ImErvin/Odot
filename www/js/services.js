@@ -1,16 +1,16 @@
-angular.module('starter.services', [])
+ angular.module('starter.services', [])
 
-.factory('Tasks', function() {
-    var tasks = {
+.factory('Tasks',['$http',function($http){
+   var tasks = {
         data:
         [{
             id: 0,
             name: 'Sample Task',
-            taskDetail: 'Sample Task',
+            taskDetail: 'Sample Detail',
             added: new Date()
         }]       
     };
-
+    
     function addTask(taskName, taskDetail) {
         tasks.data.push({id: tasks.data.length+1, name: taskName, taskDetail: taskDetail, added: new Date()});
     }    
@@ -41,7 +41,15 @@ angular.module('starter.services', [])
                 }
             }
             return null;
-        }
+        },set:function(key,value){
+          return localStorage.setItem(key,JSON.stringify(value));
+       },
+       get:function(key){
+         return JSON.parse(localStorage.getItem(key));
+       },
+       destroy:function(key){
+         return localStorage.removeItem(key);
+       },
     };
-})
+}])
 ;

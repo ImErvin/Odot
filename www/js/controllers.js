@@ -1,7 +1,10 @@
 angular.module('starter.controllers', [])
 
+/* I use two controllers, one for each State. 
+TaskCtrl parses in a $scope and the factory Tasks. $scope is used to manipulate and call variables and functions from the controllers in the HTML files and the controllers will manipulate and call variables and functions from the Tasks factory.  */
 .controller('TaskCtrl', function($scope, Tasks) {
-
+    
+    /*  */
     $scope.data = {
         taskName: "",
         taskDetail: ""
@@ -35,6 +38,7 @@ angular.module('starter.controllers', [])
         }
     }
 
+    
 })
 
 .controller('TaskDetailCtrl', function($scope, $stateParams, Tasks) {
