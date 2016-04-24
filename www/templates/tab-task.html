@@ -1,4 +1,7 @@
-<ion-view view-title="Odot Task List">
+<!-- This is the main page of the app. It contains a card with a form inside that allows the user to enter a details for a task. These details are sent to the controller through ng-model, when the add task button is pressed the details are added to the object array and thus displayed in the list of tasks. The show tasks checkbox uses ng-show, when selected it will show the list of tasks. Each item in the list has a href allowing the user to press on it and go inside that tasks state.
+The items also have a remove animation and a ion-option-button, this allows the users to swipe left to open the delete button and click the delete button to splice that current item. The remove animate, animates the delete and sends the task to the left.
+--> 
+<ion-view view-title="Odot">
     <ion-nav-bar class="header">
     <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
@@ -17,8 +20,8 @@
                 </div>      
             </div>  
         </div>
-        
         <button class="addTask button button-block" ng-click="addTask()">Add Task</button>
+        
 
         <ion-checkbox class="header checkbox-assertive" ng-model="show">Show Tasks</ion-checkbox>
         <ion-list ng-show="show"> 
