@@ -1,7 +1,9 @@
 # Odot
 Mobile Applications Development Project: A todo list, created using Ionic 1.x with AngularJS and built onto Android using Cordova.
 ###### Written by ImErvin
+
 <hr/>
+
 ### Introduction
 This application was developed as part of my Mobile Application Development module in Year 2 of Software Development.
 The intention behind this project was to get a better understanding of the real world technologies being used to develop mobile applications. 
